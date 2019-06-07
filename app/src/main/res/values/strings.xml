@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Constrain Layout Hello World</string>
+    <string name="mainImageDescription">Botella de cristal en la playa</string>
+    <string name="descripciónImagénBotellaSecreto">En la botella está el secreto</string>
+    <string name="botoniz">me gusta</string>
+    <string name="botonNoMeGusta">no me gusta</string>
+</resources>
