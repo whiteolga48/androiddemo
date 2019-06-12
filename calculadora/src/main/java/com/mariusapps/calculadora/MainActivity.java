@@ -91,7 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.btn_multiplicar:
-                break;
+
+                 operacion = "multiplicar" ;
+                 accion = "operar";
+                 break;
 
 
             case R.id.btn_sumar:
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        if (operacion == ""){
+        if (operacion.equals("")){
 
             display.setText("");
 
@@ -193,6 +196,13 @@ public class MainActivity extends AppCompatActivity {
 
 
             Log.d("CALCULATOR", "concatenando parte decimal");
+
+            String strValor = String.valueOf(valor);
+
+            Log.d("*****",strValor);
+
+
+            
         }
 
     }
