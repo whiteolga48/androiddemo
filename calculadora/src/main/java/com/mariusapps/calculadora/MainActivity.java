@@ -8,19 +8,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
+    //https://www.dev2qa.com/android-calculator-example-source-code/
 
-    EditText display;
+    private EditText display;
 
-    private double valor = 0.0;
     private double operando1 = 0.0;
+    private double operando2 = 0.0;
+    private double resultadoOperacion = 0.0;
+    private String operacion;
 
-    private TextView resultado;
+    private String operador= "";
 
-    private String operacion = "";
+    private String parteNumero="entera";
 
-    private String parteNumero = "entera";
+
+
+    private DecimalFormat decimalFormat = new DecimalFormat("#.###");
 
 
     @Override
@@ -28,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         display = findViewById(R.id.et_display);
-        resultado = findViewById(R.id.et_resultado);
+        TextView resultado = (TextView) findViewById(R.id.et_resultado);
 
 
         resultado.setText("");
@@ -39,78 +47,80 @@ public class MainActivity extends AppCompatActivity {
 
     public void botonPulsado(View view) {
 
-        int cifra = -1;
+        int valorBoton = -1;
         String accion = "";
 
+        String operacion = null;
         switch (view.getId()) {
 
 
             case R.id.btn_cero:
-                cifra = 0;
+                valorBoton = 0;
                 break;
 
+
             case R.id.btn_1:
-                cifra = 1;
+                valorBoton = 1;
                 break;
 
             case R.id.btn_2:
-                cifra = 2;
+                valorBoton = 2;
                 break;
 
             case R.id.btn_3:
-                cifra = 3;
+                valorBoton = 3;
                 break;
 
             case R.id.btn_4:
-                cifra = 4;
+                valorBoton = 4;
                 break;
 
             case R.id.btn_5:
-                cifra = 5;
+                valorBoton = 5;
                 break;
 
 
             case R.id.btn_6:
-                cifra = 6;
+                valorBoton = 6;
                 break;
 
 
             case R.id.btn_7:
-                cifra = 7;
+                valorBoton = 7;
                 break;
 
 
             case R.id.btn_8:
-                cifra = 8;
+                valorBoton = 8;
                 break;
 
 
             case R.id.btn_9:
-                cifra = 9;
+                valorBoton = 9;
                 break;
 
 
             case R.id.btn_multiplicar:
 
-                 operacion = "multiplicar" ;
+                 operador = "*" ;
                  accion = "operar";
                  break;
 
 
             case R.id.btn_sumar:
-                operacion = "sumar";
+                operador = "+";
                 accion = "operar";
                 break;
 
             case R.id.btn_restar:
-                operacion = "restar";
+               operador = "-";
                 accion = "operar";
                 break;
 
 
             case R.id.btn_division:
 
-                operacion = "dividir";
+                operador = "/";
                 accion = "operar";
                 break;
 
@@ -121,55 +131,55 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_punto:
                 parteNumero = "decimal";
+
+               Log.d("*****", String.valueOf(parteNumero));
                 break;
 
             case R.id.btn_ce:
-                valor = 0.0;
-                parteNumero = "entera";
-                operacion = "";
+                    resultadoOperacion = 0.0;
+                    parteNumero = "entera";
+                    operacion = "borrar";
         }
 
 
-        if (operacion.equals("")){
+        assert operacion != null;
 
-            display.setText("");
+        display.setText("");
 
-        }
+        if (valorBoton >= 0) {
 
-        if (cifra >= 0) {
-
-            concatenarNumeros(cifra);
+            concatenarNumeros(valorBoton);
 
             Log.d("CALCULATOR", "concatenando cifra...");
 
         }
 
-        Toast.makeText(getApplicationContext(), "Pulsado: " + cifra, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Pulsado: " + valorBoton, Toast.LENGTH_SHORT).show();
 
 
         if (accion.equals("operar")) {
             Log.d("CALCULATOR", "operación");
-            operando1 = valor;
-            valor = 0.0;
+            operando2 = operando1;
+            operando1 = 0.0;
         }
 
         if (accion.equals("calcular")) {
 
             Log.d("CALCULATOR", "botón igual...");
 
-            switch (operacion) {
+            switch (operador) {
 
-                case "sumar":
-                    valor = operando1 + valor;
+                case "+":
+                    resultadoOperacion = operando1 + operando2;
                     break;
-                case "restar":
-                    valor = operando1 - valor;
+                case "-":
+                    resultadoOperacion = operando1 - operando2;
                     break;
-                case "multiplicar":
-                    valor = operando1 * valor;
+                case "*":
+                    resultadoOperacion = operando1 * operando2;
                     break;
-                case "dividir":
-                    valor = operando1 / valor;
+                case "/":
+                    resultadoOperacion = operando1 / operando2;
                     break;
 
             }
@@ -177,9 +187,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-       resultado.setText(String.valueOf(valor));
+         display.setText(String.valueOf(resultadoOperacion));
 
-        Log.d("CALCULATOR", String.valueOf(valor));
+        Log.d("CALCULATOR", String.valueOf(resultadoOperacion));
 
 
     }
@@ -188,22 +198,24 @@ public class MainActivity extends AppCompatActivity {
     private void concatenarNumeros(int cifra) {
         if (parteNumero.equals("entera")) {
             Log.d("CALCULATOR", "concatenando parte entera");
-        valor *= 10;   
-        valor += cifra;}
+        operando1 *= 10;
+        operando1 += cifra;}
 
 
      else{
 
 
-            Log.d("CALCULATOR", "concatenando parte decimal");
-
-            String strValor = String.valueOf(valor);
-
-            Log.d("*****",strValor);
+            String strValor = String.valueOf(operando1);
+            Log.d("*******",strValor);
+            String[] partes = strValor.split("[.]");
+            Log.d("******", Arrays.toString(partes));
+            partes[1] = partes[1].equals("0")? String.valueOf(cifra) : partes[1] + cifra;
+            double valor = Double.parseDouble(partes[0] + "." + partes[1]);
 
 
             
         }
 
+        display.setText(String.valueOf(resultadoOperacion));
     }
 }
