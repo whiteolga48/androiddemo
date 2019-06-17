@@ -23,7 +23,7 @@ public class Lectura implements Serializable {
         }
 
 
-    public Lectura(Date fechaHora, double peso, double diastolica, double sistolica) {
+    public Lectura (Date fechaHora, double peso, double diastolica, double sistolica) {
         this.fechaHora = fechaHora;
         this.peso = peso;
         this.diastolica = diastolica;

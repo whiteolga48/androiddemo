@@ -1,12 +1,17 @@
 package com.mariusapps.medicdata.model;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
+
+import static android.content.ContentValues.TAG;
 
 public class LecturaServicesImpl implements LecturaServices {
 
@@ -19,9 +24,9 @@ public class LecturaServicesImpl implements LecturaServices {
         // treemap para orden natural
         LECTURAS = new TreeMap<>();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY/ HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY/ HH:mm:ss", Locale.getDefault() );
 
-        Date fecha0= null;
+        Date fecha0 =null;
         Date fecha1= null;
         Date fecha2= null;
         Date fecha3= null;
@@ -35,6 +40,8 @@ public class LecturaServicesImpl implements LecturaServices {
 
         try {
             fecha0 = sdf.parse("01/01/2019 01:20:10");
+
+            Log.d( "**","fecha"+ fecha0.toString() );
             fecha1 = sdf.parse("02/01/2019 12:17:22");
             fecha2 = sdf.parse("03/01/2019 5:20:32");
             fecha3 = sdf.parse("04/01/2019 04:45:05");
@@ -43,7 +50,7 @@ public class LecturaServicesImpl implements LecturaServices {
             fecha6 = sdf.parse("07/01/2019 04:45:14");
             fecha7 = sdf.parse("08/01/2019 07:48:21");
             fecha8 = sdf.parse("09/01/2019 09:27:22");
-            fecha9 = sdf.parse("010/01/2019 11:20:50");
+            fecha9 = sdf.parse("01/01/2019 11:20:50");
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -61,6 +68,8 @@ public class LecturaServicesImpl implements LecturaServices {
         Lectura l8 = new Lectura(fecha8,92.9,94.1,103.2,41.390205, 2.154007);
         Lectura l9 = new Lectura(fecha9,92.0,92.5,102.9,41.390205, 2.154007);
 
+
+
         l0.setCodigo(100);
         l1.setCodigo(101);
         l2.setCodigo(102);
@@ -72,7 +81,7 @@ public class LecturaServicesImpl implements LecturaServices {
         l8.setCodigo(108);
         l9.setCodigo(109);
 
-
+        Log.d( "****", "Lectura " +l0 );
 
         LECTURAS.put(l0.getCodigo(),l0);
         LECTURAS.put(l1.getCodigo(),l1);

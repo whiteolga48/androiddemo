@@ -16,7 +16,7 @@ public class Adaptador extends BaseAdapter {
     private  LayoutInflater inflater = null;
 
     Context context;
-    String [][] datos;
+    String [][]datos;
     int [] datosImg;
 
 
@@ -24,7 +24,7 @@ public class Adaptador extends BaseAdapter {
         this.context = context;
         this.datos = datos;
         this.datosImg = imagenes;
-        inflater =(LayoutInflater) context.getSystemService( context.LAYOUT_INFLATER_SERVICE );
+        inflater =(LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
     }
 
     @Override
@@ -40,9 +40,9 @@ public class Adaptador extends BaseAdapter {
         Log.d("************","i: " + i);
 
 
-        pais.setText( datos[2][0] );
-        continente.setText(datos[2] [1]);
-       imagen.setImageResource( datosImg[2] );
+        pais.setText( datos[i][0] );
+        continente.setText(datos[i][1]);
+       imagen.setImageResource( datosImg[i] );
 
         imagen.setTag( i );
 
@@ -70,12 +70,12 @@ public class Adaptador extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int i) {
         return null;
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int i) {
         return 0;
     }
 }

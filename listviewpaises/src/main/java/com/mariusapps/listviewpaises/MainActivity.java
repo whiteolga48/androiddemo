@@ -10,14 +10,17 @@ public class MainActivity extends AppCompatActivity {
 
     String [][] datos = {
 
+
+
+
             //{"País","Continente"},
             {"España","Europa"},
             {"China","Asia"},
             {"Vietnam","Asia"},
             {"Bélgica","Europa"},
             {"Marruecos","Africa"},
-            {"Australia,Oceania"},
-            {"Nueva Zelanada","Oceania"},
+            {"Australia","Oceania"},
+            {"NuevaZelanada","Oceania"},
             {"USA","América"},
             {"México","América"},
             {"Nicaragua","América"},
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             {"Alemania","Europa"},
             {"Samoa","Oceanía"},
             {"Fiyi","Oceanía"},
-            {"India","Asia"},
+            {"India","Asia"}
     };
 
 
@@ -40,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.vietnam,
             R.drawable.belgica,
             R.drawable.marruecos,
+            R.drawable.aus,
+            R.drawable.nuevazelanda,
+            R.drawable.usa,
+            R.drawable.mx,
+            R.drawable.nicaragua,
             R.drawable.rumania,
             R.drawable.filipinas,
             R.drawable.noruega,
