@@ -1,20 +1,17 @@
-package com.oma.listviewpersonalizado;
+package com.mariusapps.listviewpaises;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
-import static com.oma.listviewpersonalizado.R.layout.item_listview;
+import java.util.Arrays;
 
 public class Adaptador extends BaseAdapter {
-
 
     private  LayoutInflater inflater = null;
 
@@ -33,25 +30,23 @@ public class Adaptador extends BaseAdapter {
     @Override
     public View getView(int i, View convertView, ViewGroup parent) {
 
-         final View vista = inflater.inflate( item_listview,null );
-        TextView titulo = (TextView) vista.findViewById(R.id.tv_titulo);
-        TextView duracion = (TextView) vista.findViewById(R.id.tv_duracion);
-        TextView director = (TextView) vista.findViewById(R.id.tvdirector);
+        final View vista = inflater.inflate(R.layout.item_listview,null);
+
+        TextView pais = (TextView) vista.findViewById(R.id.tv_pais);
+        TextView continente = (TextView) vista.findViewById(R.id.tv_continente);
 
         ImageView imagen = (ImageView) vista.findViewById(R.id.imageView);
-        RatingBar calificacion = (RatingBar) vista.findViewById(R.id.rb1);
 
-        titulo.setText( datos[i][0] );
-        director.setText( datos[i][1] );
-        duracion.setText("Duración " + datos[i] [2]);
-        imagen.setImageResource( datosImg[i] );
-        calificacion.setProgress( Integer.valueOf( datos[i] [3]) );
+        Log.d("************","i: " + i);
 
+
+        pais.setText( datos[2][0] );
+        continente.setText(datos[2] [1]);
+       imagen.setImageResource( datosImg[2] );
 
         imagen.setTag( i );
 
-
-        imagen.setOnClickListener( new View.OnClickListener() {
+     /*imagen.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -59,12 +54,7 @@ public class Adaptador extends BaseAdapter {
                 visorImagen.putExtra( "IMG",datosImg[(Integer)v.getTag()]);
                 context.startActivity(visorImagen);
             }
-        } );
-
-
-
-
-
+        } );*/
 
 
         return vista;
@@ -73,6 +63,9 @@ public class Adaptador extends BaseAdapter {
 
     @Override
     public int getCount() {
+
+        Log.d("*******", Arrays.toString(datosImg));
+        Log.d("*******", "datosImg.length: " + datosImg.length );
         return datosImg.length;
     }
 
@@ -85,6 +78,4 @@ public class Adaptador extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
-
 }
