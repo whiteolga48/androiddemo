@@ -8,7 +8,7 @@ import java.util.Date;
 public class Lectura implements Serializable {
 
 
-        private Integer codigo = null;
+        private Integer codigo ;
         private Date fechaHora;
 
         private double peso;
@@ -18,7 +18,6 @@ public class Lectura implements Serializable {
         private double latitud;
 
         public Lectura(){
-
 
         }
 

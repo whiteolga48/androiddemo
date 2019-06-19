@@ -12,10 +12,26 @@ public class VisorImagen extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_visor_imagen );
 
+
+        // receptor de la imagen
+
         ImageView img = (ImageView) findViewById( R.id.iv_completa );
 
+        // Obtenemos el intent
+
+
          Intent intent = getIntent();
-         Bundle b = intent.getExtras();
+
+
+         // Los datos extras llegan a través de un bundle
+            Bundle b = intent.getExtras();
+
+            // Recoger los datos que nos envía el Intent
+
+            // Utlizar esos datos para mostrar la imagen que corresponda
+
+
+         // Sólo si el bundle NO es null
 
          if (b!=null){
 

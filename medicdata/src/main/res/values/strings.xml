@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">MedicData</string>
+    <string name="app_name">Medic Data Lecturas</string>
+    <string name="código">codigo</string>
+    <string name="diastolica">diastólica</string>
+    <string name="sistolica">sistólica</string>
+
+    <string name="fecha">fecha</string>
+    <string name="hora">hora</string>
+
+
+    <string name="peso">peso</string>
+    <string name="longitud">logitud</string>
+    <string name="latitud">latitud</string>
+    <string name="Enviar">Enviar</string>
+
+
+
+
+
+
 </resources>

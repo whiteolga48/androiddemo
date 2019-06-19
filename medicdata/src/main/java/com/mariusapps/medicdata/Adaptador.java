@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.mariusapps.medicdata.model.Lectura;
 import com.mariusapps.medicdata.model.LecturaServicesImpl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -45,8 +47,22 @@ public class Adaptador extends BaseAdapter {
         sistolica.setText(String.valueOf(lectura.getSistolica()));
         peso.setText(String.valueOf(lectura.getPeso()));
 
-        Log.d("*****", String.valueOf(fecha));
-        fecha.setText(String.valueOf(lectura.getFechaHora()));
+        Log.d("*****", lectura.toString());
+
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+
+        //
+
+        //String strFecha = sdf.format(lectura.getFechaHora());
+        //Log.d("*******",strFecha);
+
+         fecha.setText(sdf.format(lectura.getFechaHora()));
+
+        //fecha.setText(sdf.format(fecha5));
+
+
+       // fecha.setText("Hey");
 
 
 
@@ -61,11 +77,15 @@ public class Adaptador extends BaseAdapter {
         return lecturas.size();
     }
 
+
+
+   // devuelve en item (Una lectura de esa posición, devulve siempre un object )
     @Override
     public Object getItem(int position) {
         return null;
     }
 
+    // devuleve la id del item en tipo Long
     @Override
     public long getItemId(int position) {
         return 0;

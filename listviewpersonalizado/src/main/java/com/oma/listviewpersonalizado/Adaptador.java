@@ -48,15 +48,28 @@ public class Adaptador extends BaseAdapter {
         calificacion.setProgress( Integer.valueOf( datos[i] [3]) );
 
 
-        imagen.setTag( i );
+
+        imagen.setTag( i ); // cuando hacemos click saber la posición
+
 
 
         imagen.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                // le paso un obejeto de la clase class VisorImagen.class
+
+                // Class clase = String.class;
+
+                // putExtra método sobrecargado;
+
+
                 Intent visorImagen = new Intent( context,VisorImagen.class );
                 visorImagen.putExtra( "IMG",datosImg[(Integer)v.getTag()]);
+
+                // datos img es el array
+
                 context.startActivity(visorImagen);
             }
         } );

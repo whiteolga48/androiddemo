@@ -5,6 +5,9 @@ import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -24,24 +27,21 @@ public class LecturaServicesImpl implements LecturaServices {
         // treemap para orden natural
         LECTURAS = new TreeMap<>();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY/ HH:mm:ss", Locale.getDefault() );
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        Date fecha0 =null;
-        Date fecha1= null;
-        Date fecha2= null;
-        Date fecha3= null;
-        Date fecha4= null;
-        Date fecha5= null;
-        Date fecha6= null;
-        Date fecha7= null;
-        Date fecha8= null;
-        Date fecha9= null;
-
+        Date fecha0 = null;
+        Date fecha1 = null;
+        Date fecha2 = null;
+        Date fecha3 = null;
+        Date fecha4 = null;
+        Date fecha5 = null;
+        Date fecha6 = null;
+        Date fecha7 = null;
+        Date fecha8 = null;
+        Date fecha9 = null;
 
         try {
             fecha0 = sdf.parse("01/01/2019 01:20:10");
-
-            Log.d( "**","fecha"+ fecha0.toString() );
             fecha1 = sdf.parse("02/01/2019 12:17:22");
             fecha2 = sdf.parse("03/01/2019 5:20:32");
             fecha3 = sdf.parse("04/01/2019 04:45:05");
@@ -55,10 +55,8 @@ public class LecturaServicesImpl implements LecturaServices {
             e.printStackTrace();
         }
 
-
-
-        Lectura l0 = new Lectura(fecha0,97.6,91.2,105.3,41.390205, 2.154007);
-        Lectura l1 = new Lectura(fecha1,95.3,90.5,102.7,41.390205, 2.154007);
+        Lectura lectura0 = new Lectura(fecha0,97.6,91.2,105.3,41.390205, 2.154007);
+        Lectura lectura1 = new Lectura(fecha1,95.3,90.5,102.7,41.390205, 2.154007);
         Lectura l2 = new Lectura(fecha2,94.1,90.3,102.9,41.390205, 2.154007);
         Lectura l3 = new Lectura(fecha3,94.4,91.1,103.3,41.390205, 2.154007);
         Lectura l4 = new Lectura(fecha4,93.5,92.8,104.5,41.390205, 2.154007);
@@ -70,8 +68,8 @@ public class LecturaServicesImpl implements LecturaServices {
 
 
 
-        l0.setCodigo(100);
-        l1.setCodigo(101);
+        lectura0.setCodigo(100);
+        lectura1.setCodigo(101);
         l2.setCodigo(102);
         l3.setCodigo(103);
         l4.setCodigo(104);
@@ -81,10 +79,9 @@ public class LecturaServicesImpl implements LecturaServices {
         l8.setCodigo(108);
         l9.setCodigo(109);
 
-        Log.d( "****", "Lectura " +l0 );
 
-        LECTURAS.put(l0.getCodigo(),l0);
-        LECTURAS.put(l1.getCodigo(),l1);
+        LECTURAS.put(lectura0.getCodigo(),lectura0);
+        LECTURAS.put(lectura1.getCodigo(),lectura1);
         LECTURAS.put(l2.getCodigo(),l2);
         LECTURAS.put(l3.getCodigo(),l3);
         LECTURAS.put(l4.getCodigo(),l4);
@@ -98,9 +95,7 @@ public class LecturaServicesImpl implements LecturaServices {
     }
 
 
-
     private LecturaServicesImpl(){
-
 
     }
 
@@ -116,7 +111,9 @@ public class LecturaServicesImpl implements LecturaServices {
 
         // hemos de calcular el nuevo código...
         Integer maxCode = ((TreeMap<Integer,Lectura> )LECTURAS).lastKey();
-        Integer newCode = maxCode++;
+
+        Integer newCode = ++maxCode;
+
         lectura.setCodigo(newCode);
         return LECTURAS.put(lectura.getCodigo(),lectura);
     }
@@ -130,16 +127,12 @@ public class LecturaServicesImpl implements LecturaServices {
     public Lectura update(Lectura lectura) {
 
 
-        boolean lecturaExiste = LECTURAS.containsKey((lectura.getCodigo()));
+        boolean lecturaExiste = LECTURAS.containsKey(lectura.getCodigo());
 
         if (lectura.getCodigo() == null || !lecturaExiste){
-
-           // throw new ilegaal .......
-
+            throw new IllegalArgumentException("no existe la lectura");
         }
-
-
-        return LECTURAS.put(lectura.getCodigo(),lectura);
+        return LECTURAS.put(lectura.getCodigo(), lectura);
     }
 
     @Override
@@ -147,18 +140,25 @@ public class LecturaServicesImpl implements LecturaServices {
 
         Lectura lectura = LECTURAS.remove(codigo);
 
-
-
-        return lectura == null? false:true;
+        return (lectura == null) ? false : true;
     }
 
     @Override
     public List<Lectura> getAll() {
 
+        List<Lectura> lecturas = new ArrayList<Lectura>(LECTURAS.values());
 
 
+        Collections.sort(lecturas, new Comparator<Lectura>() {
 
-        return new ArrayList<Lectura>(LECTURAS.values());
+            @Override
+            public int compare(Lectura lectura0, Lectura lectura1) {
+                return lectura1.getCodigo() - lectura0.getCodigo();
+            }
+
+        });
+
+        return lecturas;
     }
 
     @Override
