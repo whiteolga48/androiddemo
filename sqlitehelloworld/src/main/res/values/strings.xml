@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SqLiteHelloWorld</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido1">Primer apellido</string>
+    <string name="apellido2">Segundo apellido</string>
+    <string name="crear">crear</string>
 </resources>

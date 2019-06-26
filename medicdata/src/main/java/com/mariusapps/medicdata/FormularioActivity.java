@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.mariusapps.medicdata.model.Lectura;
 import com.mariusapps.medicdata.model.LecturaServices;
 import com.mariusapps.medicdata.model.LecturaServicesImpl;
+import com.mariusapps.medicdata.model.LecturaServicesSQLite;
 
 import java.util.Date;
 
@@ -29,8 +30,8 @@ public class FormularioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
 
 
-        lecturaServices=LecturaServicesImpl.getInstance();
-
+       // lecturaServices=LecturaServicesImpl.getInstance();
+        lecturaServices = new LecturaServicesSQLite(this);
            }
 
         public void enviar (View view){
@@ -51,7 +52,6 @@ public class FormularioActivity extends AppCompatActivity {
 
 
             Lectura lectura = new Lectura(new Date(),peso,diastolica,sistolica);
-
             lecturaServices.create(lectura);
 
             Intent intent = new Intent(this,MainActivity.class);

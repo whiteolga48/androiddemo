@@ -9,14 +9,22 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.mariusapps.medicdata.model.Lectura;
+import com.mariusapps.medicdata.model.LecturaServices;
 import com.mariusapps.medicdata.model.LecturaServicesImpl;
+import com.mariusapps.medicdata.model.LecturaServicesSQLite;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.zip.Inflater;
 
 public class Adaptador extends BaseAdapter {
+
+
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 
     private Context contexto;
     private LayoutInflater inflater = null;
@@ -28,7 +36,9 @@ public class Adaptador extends BaseAdapter {
         this.contexto = contexto;
 
         inflater = (LayoutInflater) contexto.getSystemService(contexto.LAYOUT_INFLATER_SERVICE);
-        lecturas = LecturaServicesImpl.getInstance().getAll();
+       // lecturas = LecturaServicesImpl.getInstance().getAll();
+        LecturaServices lecturaServices = new LecturaServicesSQLite(contexto);
+        lecturas = lecturaServices.getAll();
     }
 
     @Override
@@ -46,23 +56,33 @@ public class Adaptador extends BaseAdapter {
         diastolica.setText(String.valueOf(lectura.getDiastolica()));
         sistolica.setText(String.valueOf(lectura.getSistolica()));
         peso.setText(String.valueOf(lectura.getPeso()));
+      //  fecha.setText(sdf.format(lectura.getFechaHora()));
+
+
 
         Log.d("*****", lectura.toString());
 
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss");
+
+        //String date = sdf.format(new Date());
+
+
+
+
+
 
         //
 
-        //String strFecha = sdf.format(lectura.getFechaHora());
+       // String strFecha = sdf.format(lectura.getFechaHora());
         //Log.d("*******",strFecha);
 
-         fecha.setText(sdf.format(lectura.getFechaHora()));
+         //fecha.setText(sdf.format(lectura.getFechaHora()));
 
         //fecha.setText(sdf.format(fecha5));
+        //fecha.setText(strFecha);
 
 
-       // fecha.setText("Hey");
+       //fecha.setText("Hey");
 
 
 
@@ -70,6 +90,8 @@ public class Adaptador extends BaseAdapter {
 
 
     }
+
+
 
 
     @Override
