@@ -38,7 +38,7 @@ public class LecturaServicesSQLite implements LecturaServices {
 
         //return myDB.dele
 
-        //return false;
+        return false;
 
     }
 

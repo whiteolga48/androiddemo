@@ -1,8 +1,9 @@
-package com.mariusapps.medicdata.model;
+package com.mariusapps.medicdatafragments.model;
 
 import android.content.Context;
 
-import com.mariusapps.medicdata.database.DatabaseHelper;
+
+import com.mariusapps.medicdatafragments.database.DatabaseHelper;
 
 import java.util.Date;
 import java.util.List;

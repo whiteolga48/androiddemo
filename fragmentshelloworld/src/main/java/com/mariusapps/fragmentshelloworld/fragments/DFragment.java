@@ -1,4 +1,4 @@
-package com.mariusapps.fragmentshelloworld.Fragments;
+package com.mariusapps.fragmentshelloworld.fragments;
 
 
 import android.os.Bundle;

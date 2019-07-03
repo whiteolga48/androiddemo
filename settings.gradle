@@ -1,1 +1,1 @@
-include ':app', ':calculadora', ':simplelistview',  ':listviewpersonalizado', ':listviewpaises', ':medicdata',  ':multas', ':sqlitehelloworld'
+include ':app', ':calculadora', ':simplelistview',  ':listviewpersonalizado', ':listviewpaises', ':medicdata',  ':multas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments'

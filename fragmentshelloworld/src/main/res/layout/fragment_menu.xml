@@ -2,13 +2,41 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MenuFragment"
+    android:layout_gravity="center_horizontal">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center_horizontal"
+       android:orientation="horizontal"
+       android:weightSum="1">
+
+      <!--<Space style="@style/espacio"/>-->
+
+      <ImageButton
+          android:id="@+id/boton1"
+          style="@style/botones"
+          android:src="@drawable/bgris1" />
+
+      <!--<Space style="@style/espacio"/>-->
+
+      <ImageButton
+          android:id="@+id/boton2"
+          style="@style/botones"
+          android:src="@drawable/bgris2" />
+
+      <!--<Space style="@style/espacio"/>-->
+
+      <ImageButton
+          android:id="@+id/boton3"
+          style="@style/botones"
+          android:src="@drawable/bgris3" />
+
+      <!--<Space style="@style/espacio"/>-->
+
+   </LinearLayout>
 
 </FrameLayout>

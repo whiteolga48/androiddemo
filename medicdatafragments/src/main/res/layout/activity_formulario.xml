@@ -5,24 +5,21 @@
     android:id="@+id/idDiestolica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormularioActivity"
+    tools:context=".FormularioFragment1"
     tools:ignore="ExtraText">
 
     <Button
         android:id="@+id/idButtonEnviar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="57dp"
+
         android:layout_marginBottom="96dp"
-        android:onClick="enviar"
-        android:text="@string/Enviar"
+        android:text="Enviar"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_siastolica_formulario"
-        app:layout_constraintVertical_bias="0.932" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/id_Diastólica_formulario"
@@ -130,7 +127,7 @@
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/peso"
+        android:text="peso"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline8"
@@ -144,7 +141,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="28dp"
-        android:text="@string/sistolica"
+        android:text="sistolica"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
@@ -160,7 +157,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/diastolica"
+        android:text="diastolica"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintHorizontal_bias="0.813"
