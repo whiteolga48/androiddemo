@@ -1,58 +1,42 @@
 package com.mariusapps.reshelloworld.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Comment {
 
-    private int id;
     private int postId;
+    private int id;
     private String name;
     private String email;
-    private String texto;
+
+    @SerializedName("body")
+    private String text;
 
     public Comment(){
 
-
     }
 
+    public int getPostId() {
 
-
+        return postId;
+    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPostId() {
-        return postId;
-    }
-
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
-
     public String getName() {
+
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
+
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getText() {
 
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
+        return text;
     }
 }

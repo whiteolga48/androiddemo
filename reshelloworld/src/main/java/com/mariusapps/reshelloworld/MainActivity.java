@@ -18,72 +18,60 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView textViewResult;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textViewResult = findViewById(R.id.idTextviewResult);
+        textViewResult = (TextView) findViewById(R.id.idTextviewResult);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://jsonplaceholder.typicode/")
+                .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-                jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-                getComments();
-
-
+        getComments();
 
     }
 
-        private void getComments(){
+    private void getComments(){
 
+        Call<List<Comment>> call = jsonPlaceHolderApi.getCommnets(3);
 
-            Call<List<Comment>> call = jsonPlaceHolderApi.getComments(3);
-            call.enqueue(new Callback<List<Comment>>() {
+        call.enqueue(new Callback<List<Comment>>() {
 
+            @Override
+            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
 
-                @Override
-                public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
-
-
-                    if(!response.isSuccessful()){
-
-                        textViewResult.setText("Code: " + response.code());
-
-                        List<Comment> comments = response.body();
-
-                        for (Comment comment : comments){
-
-                            String content = "";
-                            content +="ID: " + comment.getId() + "\n";
-                            content +="Post_ID" + comment.getId() + "\n";
-
-
-                        }
-
-                    }
-
+                if (!response.isSuccessful()){
+                    textViewResult.setText("Code: " + response.code());
+                    return;
                 }
 
-                @Override
-                public void onFailure(Call<List<Comment>> call, Throwable t) {
+                List<Comment> comments = response.body();
 
+                for(Comment comment: comments){
+                    String content = "";
+                    content += "ID: " + comment.getId() + "\n";
+                    content += "PostId: " + comment.getPostId() + "\n";
+                    content += "Name: " + comment.getName() + "\n";
+                    content += "Email: " + comment.getEmail() + "\n";
+                    content += "Text: " + comment.getText() + "\n\n";
+
+                    textViewResult.append(content);
                 }
-            });
+            }
 
+            @Override
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+                textViewResult.setText(t.getMessage());
+            }
+        });
 
-
-        }
-
-
+    }
 }
-
-

@@ -1,15 +1,18 @@
 package com.mariusapps.pollolokoretrofit.model;
 
-public class Camareros {
+public class Camarero {
 
 
 
     private Long codigo;
     private String nombre;
 
-    public Camareros() {
+
+    public Camarero() {
 
     }
+
+
 
     public Long getCodigo() {
         return codigo;
@@ -25,5 +28,16 @@ public class Camareros {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Camarero{" +
+                "codigo=" + codigo +
+                ", nombre='" + nombre + '\'' +
+                '}';
+
+
+
     }
 }
