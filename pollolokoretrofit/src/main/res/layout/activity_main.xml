@@ -20,15 +20,15 @@
         android:text="Camareros"
         app:layout_constraintBottom_toTopOf="@+id/idButtonProductos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.445" />
 
     <Button
         android:id="@+id/idButtonProductos"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_width="137dp"
+        android:layout_height="51dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="50dp"
@@ -36,9 +36,10 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="72dp"
         android:tag="2"
-        android:text="Button"
+        android:text="Productos"
         app:layout_constraintBottom_toTopOf="@+id/idButtonPedidos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idBtnCamareros" />
 
@@ -48,16 +49,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:tag="3"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Pedidos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idButtonProductos"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="292dp" />
+
+    <Button
+        android:id="@+id/idButtonAltaProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:text="Alta Producto"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="469dp" />
+
+    <Button
+        android:id="@+id/id_btn_alta_camarero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Alta Camarero"
+        app:layout_constraintEnd_toStartOf="@+id/idButtonAltaProducto"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="469dp" />
 </android.support.constraint.ConstraintLayout>

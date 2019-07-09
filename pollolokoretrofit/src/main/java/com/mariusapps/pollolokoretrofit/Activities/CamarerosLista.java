@@ -2,6 +2,8 @@ package com.mariusapps.pollolokoretrofit.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.mariusapps.pollolokoretrofit.JsonPlaceHolderApi;
@@ -47,19 +49,36 @@ public class CamarerosLista extends AppCompatActivity  {
 
                     if (!response.isSuccessful()){
 
-
                         textView.setText("Code: " + response.code());
+                        Log.d("**", "onResponse: "+ response.code());
                         return;
                     }
+
+                    List<Camarero> camareros = response.body();
+
+                    for (Camarero camarero:camareros){
+
+                        Log.d("**", "onResponse: "+response.body());
+
+                        String content = "";
+                        content += "Nombre: " + camarero.getNombre()+"\n";
+                        content += "Código : " + camarero.getCodigo() + "\n";
+                        textView.append(content);
+
+                        Log.d("***", content);
+
+                        textView.setMovementMethod(new ScrollingMovementMethod());
+                    }
+
 
                 }
 
 
-                List<Camarero> camareros = repo
 
 
                 @Override
                 public void onFailure(Call<List<Camarero>> call, Throwable t) {
+                    textView.setText(t.getMessage());
 
                 }
             });

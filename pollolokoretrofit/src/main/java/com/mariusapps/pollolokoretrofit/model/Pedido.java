@@ -10,7 +10,7 @@ public class Pedido {
     private Date fecha;
     private int mesa;
     private Camarero camarero;
-    private List<LineaPedido> lineasPedido;
+//    private List<LineaPedido> lineasPedido;
 
     public Pedido() {
     }
@@ -48,13 +48,13 @@ public class Pedido {
         this.camarero = camarero;
     }
 
-    public List<LineaPedido> getLineasPedido() {
-        return lineasPedido;
-    }
+//    public List<LineaPedido> getLineasPedido() {
+//        return lineasPedido;
+//    }
 
-    public void setLineasPedido(List<LineaPedido> lineasPedido) {
-        this.lineasPedido = lineasPedido;
-    }
+//    public void setLineasPedido(List<LineaPedido> lineasPedido) {
+//        this.lineasPedido = lineasPedido;
+//    }
 
     @Override
     public String toString() {
@@ -63,7 +63,7 @@ public class Pedido {
                 ", fecha=" + fecha +
                 ", mesa=" + mesa +
                 ", camarero=" + camarero +
-                ", lineasPedido=" + lineasPedido +
+//                ", lineasPedido=" + lineasPedido +
                 '}';
     }
 }
