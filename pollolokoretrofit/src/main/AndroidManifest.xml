@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.AltaProductos"></activity>
+        <activity android:name=".Activities.ListadosGenerales"></activity>
+        <activity android:name=".Activities.AltaProductos" />
         <activity android:name=".Activities.AltaCamarero" />
         <activity android:name=".Activities.PedidosLista" />
         <activity android:name=".Activities.ProductosLista" />

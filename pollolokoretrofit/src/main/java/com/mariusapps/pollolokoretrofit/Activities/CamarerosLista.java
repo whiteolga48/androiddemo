@@ -58,14 +58,14 @@ public class CamarerosLista extends AppCompatActivity  {
 
                     for (Camarero camarero:camareros){
 
-                        Log.d("**", "onResponse: "+response.body());
+//                        Log.d("**", "onResponse: "+response.body());
 
                         String content = "";
                         content += "Nombre: " + camarero.getNombre()+"\n";
                         content += "Código : " + camarero.getCodigo() + "\n";
                         textView.append(content);
 
-                        Log.d("***", content);
+//                        Log.d("***", content);
 
                         textView.setMovementMethod(new ScrollingMovementMethod());
                     }

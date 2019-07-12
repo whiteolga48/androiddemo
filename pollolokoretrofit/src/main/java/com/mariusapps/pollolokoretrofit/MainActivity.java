@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mariusapps.pollolokoretrofit.Activities.AltaCamarero;
+import com.mariusapps.pollolokoretrofit.Activities.AltaProductos;
 import com.mariusapps.pollolokoretrofit.Activities.CamarerosLista;
+import com.mariusapps.pollolokoretrofit.Activities.ListadosGenerales;
 import com.mariusapps.pollolokoretrofit.Activities.PedidosLista;
 import com.mariusapps.pollolokoretrofit.Activities.ProductosLista;
 
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(MainActivity.this, CamarerosLista.class);
+                Intent intent = new Intent(MainActivity.this, ListadosGenerales.class);
                 startActivity(intent);
 
 
@@ -59,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(MainActivity.this, ProductosLista.class);
+                    Intent intent = new Intent(MainActivity.this, ListadosGenerales
+                            .class);
                     startActivity(intent);
 
                 }
@@ -76,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-
             btn_alta_camareros.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -84,8 +86,23 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, AltaCamarero.class);
                     startActivity(intent);
 
+
                 }
             });
+
+
+            btn_alta_productos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    Intent intent = new Intent(MainActivity.this, AltaProductos.class);
+                    startActivity(intent);
+                }
+            });
+
+
+
 
 
 
