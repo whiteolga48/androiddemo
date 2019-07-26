@@ -23,7 +23,6 @@ public class AltaCamarero extends AppCompatActivity {
     Button btn_crear_camarero;
     private JsonPlaceHolderApi  jsonPlaceHolderApi;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,22 +31,13 @@ public class AltaCamarero extends AppCompatActivity {
         btn_crear_camarero = findViewById(R.id.idButtonCrearCamarero);
 
         Retrofit retrofit = new Retrofit.Builder()
-
                 .baseUrl("https://pedi-gest.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         jsonPlaceHolderApi = retrofit.create((JsonPlaceHolderApi.class));
 
-
-
-
-
-
-
-
-
-        btn_crear_camarero.setOnClickListener(new View.OnClickListener() {
+       btn_crear_camarero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -58,11 +48,7 @@ public class AltaCamarero extends AppCompatActivity {
             }
         });
 
-
-
-
     }
-
        private void createCamarero(){
 
            Camarero newCamarero = new Camarero();

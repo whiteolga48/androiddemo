@@ -36,39 +36,22 @@ public class ListadosGenerales extends AppCompatActivity {
                 .build();
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-
-
         Call<List<Camarero>>call = jsonPlaceHolderApi.getCamareros();
-
         call.enqueue(new Callback<List<Camarero>>() {
             @Override
             public void onResponse(Call<List<Camarero>> call, Response<List<Camarero>> response) {
 
                 if (!response.isSuccessful())
-
                 {return;}
-
                 List<Camarero> camareros = response.body();
                 camareroListar(camareros);
-
-
             }
-
             @Override
             public void onFailure(Call<List<Camarero>> call, Throwable t) {
-
             }
         });
 
-
-
-
-
-
     }
-
-
-
 
     private void camareroListar (List<Camarero>camareros){
 
@@ -85,6 +68,31 @@ public class ListadosGenerales extends AppCompatActivity {
 
 
     private void productoListar (List<Producto>productos){
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://pedi-gest.herokuapp.com/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        Call<List<Producto>>call = jsonPlaceHolderApi.getProductos();
+        call.enqueue(new Callback<List<Producto>>() {
+            @Override
+            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+
+                if (!response.isSuccessful())
+                {return;}
+                List<Producto> productos = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Producto>> call, Throwable t) {
+
+            }
+
+        });
 
 
         ListView listaProductos;

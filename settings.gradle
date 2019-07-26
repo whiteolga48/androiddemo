@@ -1,1 +1,1 @@
-include ':app', ':calculadora', ':simplelistview',  ':listviewpersonalizado', ':listviewpaises', ':medicdata',  ':multas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments', ':reshelloworld', ':pollolokoretrofit', ':gpshelloworldv1'
+include ':app', ':calculadora', ':simplelistview',  ':listviewpersonalizado', ':listviewpaises', ':medicdata',  ':multas', ':sqlitehelloworld', ':fragmentshelloworld', ':medicdatafragments', ':reshelloworld', ':pollolokoretrofit', ':gpshelloworldv1', ':medicdataretrofitv3', ':menuhellowworld', ':materialdemo', ':paisesbanderas'

@@ -16,44 +16,20 @@ import java.util.List;
 
 import retrofit2.Callback;
 
-public class ApdatadorLecturas extends BaseAdapter {
-
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        return null;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
-
-
+public class AdaptadorLecturas extends BaseAdapter {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 
     private Context contexto;
     private LayoutInflater inflater = null;
     private List<Lectura> lecturas;
 
-    public ApdatadorLecturas(Callback<List<Lectura>> contexto, List<Lectura> lecturas){
+    public AdaptadorLecturas(Context contexto, List<Lectura> lecturas){
 
+        this.contexto =  contexto;
+        this.lecturas = lecturas;
 
-        this.contexto = (Context) contexto;
-
-        inflater = (LayoutInflater) ((Context) contexto).getSystemService(((Context) contexto).LAYOUT_INFLATER_SERVICE);
+        inflater = (LayoutInflater) contexto.getSystemService(((Context) contexto).LAYOUT_INFLATER_SERVICE);
 
     }
 
@@ -61,31 +37,22 @@ public class ApdatadorLecturas extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         final View vista =  inflater.inflate(R.layout.item_list_view,null);
+        Lectura lectura = lecturas.get(position);
+
 
         TextView diastolica = (TextView) vista.findViewById(R.id.idDiastolica);
         TextView sistolica =  (TextView) vista.findViewById(R.id.idSistolica);
         TextView peso = (TextView) vista.findViewById(R.id.idPeso);
-        TextView fecha = (TextView) vista.findViewById(R.id.idfecha);
-
-        Lectura lectura = lecturas.get(position);
+//        TextView fecha = (TextView) vista.findViewById(R.id.idfecha);
 
         diastolica.setText(String.valueOf(lectura.getDiastolica()));
         sistolica.setText(String.valueOf(lectura.getSistolica()));
         peso.setText(String.valueOf(lectura.getPeso()));
-        //  fecha.setText(sdf.format(lectura.getFechaHora()));
-
-
+//          fecha.setText(sdf.format(lectura,get1()));
 
         Log.d("*****", lectura.toString());
 
-
-
         //String date = sdf.format(new Date());
-
-
-
-
-
 
         //
 
@@ -100,14 +67,9 @@ public class ApdatadorLecturas extends BaseAdapter {
 
         //fecha.setText("Hey");
 
-
-
         return vista;
 
-
     }
-
-
 
 
     @Override
