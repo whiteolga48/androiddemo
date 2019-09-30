@@ -3,7 +3,7 @@ package com.mariusapps.fragmentshelloworld;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.mariusapps.fragmentshelloworld.fragments.AFragment;
@@ -23,7 +23,9 @@ public class DestActivity extends AppCompatActivity implements ComunicaMenu {
         fragments = new Fragment[3]; // creamos array de 3 elementos
 
         // asignamos un Fragment a cada uno de los elementos del array...
-        fragments[0] = new AFragment();
+
+        fragments [0] = new  AFragment();
+
         fragments[1] = new BFragment();
         fragments[2] = new CFragment();
 

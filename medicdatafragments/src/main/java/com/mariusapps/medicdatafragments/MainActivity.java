@@ -1,13 +1,17 @@
 package com.mariusapps.medicdatafragments;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +58,17 @@ MainActivity extends AppCompatActivity {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
+        public ViewPagerAdapter(FragmentManager supportFragmentManager) {
+            super(supportFragmentManager);
         }
+
+//        public ViewPagerAdapter(FragmentManager manager) {
+//            super(manager);
+//        }
+//
+//        public ViewPagerAdapter(FragmentManager supportFragmentManager) {
+//
+//        }
 
         @Override
         public Fragment getItem(int position) {

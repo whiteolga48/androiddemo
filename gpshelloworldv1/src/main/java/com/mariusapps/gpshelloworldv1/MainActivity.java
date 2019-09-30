@@ -6,10 +6,11 @@ import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,24 +26,18 @@ public class MainActivity extends AppCompatActivity {
         Criteria criteria = new Criteria();
         criteria.setAccuracy(criteria.ACCURACY_HIGH);
         providerName = locationManager.getBestProvider(criteria,false);
-
-        if(providerName = ! null && !providerName.equals("")){
+        if(providerName = !null && !providerName.equals("")){
 
             if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                     PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION)!=
-                    PackageManager.PERMISSION_GRANTED)´{
+                    PackageManager.PERMISSION_GRANTED){
 
                     return;}
 
-
             Location location = locationManager.getLastKnownLocation(providerName);
-
             if (location != null){
-
-                Log.d("***", "Longitud" + location.getLongitude());
-
-
+            Log.d("***", "Longitud" + location.getLongitude());
             }
 
 
